@@ -1,40 +1,91 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# saleassist_video_tiles
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A Flutter package to display and manage short-form video tiles — just like Instagram Reels or YouTube Shorts — with product integration, video caching, and smooth full-screen transitions. Created by **SaleAssist**.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+---
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## ✨ Features
 
-## Features
+- Vertical video tiles (Reels-like)
+- Fullscreen playback with controls
+- Built-in product info display
+- Smart video caching
+- Customizable layout and autoplay
+- Bloc-based controller management
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+---
 
-## Getting started
+## 🚀 Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add this to your `pubspec.yaml`:
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  saleassist_video_tiles: ^0.0.1
 ```
 
-## Additional information
+Then run:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
-# Saleassist-video-tiles
+```bash
+flutter pub get
+```
+
+---
+
+## 🧩 Usage
+
+Import the widget:
+
+```dart
+import 'package:saleassist_video_tiles/saleassist_video_tiles.dart';
+```
+
+### Basic Example
+
+```dart
+SaleassistVideoTiles(
+  autoPlay: true,
+  borderRadius: 10,
+  type: VideoTileType.tileView,
+  seperatorWidth: 8,
+  tileSize: Size(200, 300),
+  playListId: "f8ebec27-0164-4a6b-83a6-3d6689b988e2",
+),
+```
+
+### Parameter Overview
+
+| Parameter        | Type            | Description                                                  |
+| ---------------- | --------------- | ------------------------------------------------------------ |
+| `autoPlay`       | `bool`          | Autoplay videos on visibility                                |
+| `borderRadius`   | `double`        | Border radius for tile corners                               |
+| `type`           | `VideoTileType` | Display type: `tileView` ,`coverFlow` , `story` , `gridview` |
+| `seperatorWidth` | `double`        | Spacing between tiles                                        |
+| `tileSize`       | `Size`          | Size of each video tile                                      |
+| `playListId`     | `String`        | Playlist ID to load videos dynamically                       |
+
+---
+
+## 📦 Package Structure
+
+- `SaleassistVideoTiles` – main widget for embedding videos
+- `SaleAssistFullScreenPage` – full-screen view with player controls
+- Bloc state handling for optimized controller management and caching
+
+---
+
+## 📄 License
+
+Licensed under the MIT License. See [LICENSE](LICENSE) for more info.
+
+---
+
+## 👤 Author
+
+Maintained by [Saleassist.ai](https://github.com/yash-g-dev)
+
+---
+
+## 💡 Contribution
+
+Have suggestions or found a bug? Feel free to open an [issue](https://github.com/yash-g-dev/Saleassist-video-tiles/issues) or submit a PR!

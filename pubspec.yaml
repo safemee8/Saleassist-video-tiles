@@ -1,7 +1,7 @@
 name: saleassist_video_tiles
-description: "A new Flutter package project."
+description: "Saleassist Video Tiles"
 version: 0.0.1
-homepage:
+homepage: https://github.com/yash-g-dev/Saleassist-video-tiles
 
 environment:
   sdk: ^3.5.3
