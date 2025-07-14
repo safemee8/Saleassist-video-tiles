@@ -11,12 +11,14 @@ class FullScreenPlayer extends StatefulWidget {
   final FileInfo fileInfo;
   final ShortsModel shortsModel;
   final int index;
+  final Function(String productId) onProductClick;
 
   const FullScreenPlayer({
     super.key,
     required this.fileInfo,
     required this.shortsModel,
     required this.index,
+    required this.onProductClick,
   });
 
   @override
@@ -174,7 +176,9 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
                                 ),
                               const Spacer(),
                               ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  widget.onProductClick(product.id ?? "");
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: widget
                                               .shortsModel.themeColor !=

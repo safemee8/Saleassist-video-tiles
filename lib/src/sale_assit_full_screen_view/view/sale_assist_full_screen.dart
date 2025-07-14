@@ -13,12 +13,14 @@ import 'package:video_player/video_player.dart';
 
 class SaleAssistFullScreenPage extends StatefulWidget {
   final ShortsModel shortsModel;
+  final Function({String mediaId, String productId}) onProductClick;
   final int initialPage;
 
   const SaleAssistFullScreenPage({
     super.key,
     required this.shortsModel,
     this.initialPage = 0,
+    required this.onProductClick,
   });
 
   @override
@@ -78,6 +80,11 @@ class _SaleAssistFullScreenPageState extends State<SaleAssistFullScreenPage> {
                 return FullScreenPlayer(
                   shortsModel: widget.shortsModel,
                   fileInfo: state.current,
+                  onProductClick: (productId) {
+                    widget.onProductClick(
+                        mediaId: widget.shortsModel.media?[index].id ?? "",
+                        productId: productId);
+                  },
                   index: state.currentIndex,
                 );
               }

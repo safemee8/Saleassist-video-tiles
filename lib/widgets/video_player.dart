@@ -21,6 +21,7 @@ class VideoTileWidget extends StatefulWidget {
   final bool autoPlay;
   final FileInfo fileInfo;
   final double? borderRadius;
+  final Function({String mediaId, String productId}) onProductClick;
   const VideoTileWidget({
     Key? key,
     required this.index,
@@ -30,6 +31,7 @@ class VideoTileWidget extends StatefulWidget {
     this.autoPlay = false,
     this.borderRadius,
     required this.fileInfo,
+    required this.onProductClick,
   }) : super(key: key);
 
   @override
@@ -173,6 +175,7 @@ class _VideoTileWidgetState extends State<VideoTileWidget> {
                           child: SaleAssistFullScreenPage(
                             initialPage: widget.index,
                             shortsModel: widget.shortsModel,
+                            onProductClick: widget.onProductClick,
                           ),
                         ),
                         transitionsBuilder: (_, anim, __, child) =>
@@ -221,6 +224,7 @@ class _VideoTileWidgetState extends State<VideoTileWidget> {
                         child: SaleAssistFullScreenPage(
                           initialPage: widget.index,
                           shortsModel: widget.shortsModel,
+                          onProductClick: widget.onProductClick,
                         ),
                       ),
                       transitionsBuilder: (_, anim, __, child) =>

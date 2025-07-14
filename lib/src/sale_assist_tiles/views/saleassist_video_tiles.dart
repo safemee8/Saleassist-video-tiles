@@ -18,10 +18,12 @@ class SaleassistVideoTiles extends StatelessWidget {
   final bool autoPlay;
   final Size tileSize;
   final double? seperatorWidth;
+  final Function({String mediaId, String productId}) onProductClick;
   const SaleassistVideoTiles(
       {super.key,
       this.type = VideoTileType.tileView,
       required this.playListId,
+      required this.onProductClick,
       this.borderRadius,
       this.autoPlay = false,
       this.tileSize = const Size(100, 200),
@@ -35,19 +37,7 @@ class SaleassistVideoTiles extends StatelessWidget {
           chacheManger: SaleAssisstChacheManger())
         ..add(SaleassistTileLoadEvent(
           playlistId: playListId,
-          videos: [
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4",
-            "https://client-static.saleassist.ai/10b07b83-c8e3-4b74-8c06-3eb5923794af/TheShotThatFooled50MillionPeople-Mokum360ph264.mp4"
-          ],
+          videos: [],
         )),
       child: Builder(
         builder: (context) {
@@ -57,6 +47,7 @@ class SaleassistVideoTiles extends StatelessWidget {
                 borderRadius: borderRadius,
                 seperatorWidth: seperatorWidth,
                 size: tileSize,
+                onProductClick: onProductClick,
                 autoPlay: autoPlay,
                 playListId: playListId,
               );

@@ -14,6 +14,7 @@ class SaleassistTileView extends StatelessWidget {
   final bool autoPlay;
   final String playListId;
   final double? iconSize;
+  final Function({String mediaId, String productId}) onProductClick;
 
   const SaleassistTileView({
     Key? key,
@@ -22,6 +23,7 @@ class SaleassistTileView extends StatelessWidget {
     required this.size,
     required this.autoPlay,
     required this.playListId,
+    required this.onProductClick,
     this.iconSize,
   }) : super(key: key);
 
@@ -56,6 +58,7 @@ class SaleassistTileView extends StatelessWidget {
                       child: VideoTileWidget(
                         shortsModel: state.shortsModel,
                         fileInfo: state.fileInfos[index]!,
+                        onProductClick: onProductClick,
                         size: size,
                         iconSize: iconSize,
                         autoPlay: index == 0 ? autoPlay : false,
