@@ -118,86 +118,84 @@ class _VideoTileWidgetState extends State<VideoTileWidget> {
             );
           },
         ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Positioned(
-            top: 20,
-            child: Column(
-              spacing: 2,
-              children: [
-                AnimatedBuilder(
-                  animation: _controller,
-                  builder: (context, child) {
-                    final isMuted = _controller.value.volume == 0;
-                    return IconButton(
-                      iconSize: widget.iconSize,
-                      icon: Container(
-                        padding: const EdgeInsets.all(5.0),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.7),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          isMuted ? Icons.volume_off : Icons.volume_up,
-                          color: Colors.white,
-                        ),
+        Positioned(
+          top: 20,
+          right: 0,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            spacing: 2,
+            children: [
+              AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  final isMuted = _controller.value.volume == 0;
+                  return IconButton(
+                    iconSize: widget.iconSize,
+                    icon: Container(
+                      padding: const EdgeInsets.all(5.0),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.7),
+                        shape: BoxShape.circle,
                       ),
-                      onPressed: _initialized
-                          ? () {
-                              if (isMuted) {
-                                _controller.setVolume(1);
-                                _controller.play();
-                              } else {
-                                _controller.setVolume(0);
-                              }
+                      child: Icon(
+                        isMuted ? Icons.volume_off : Icons.volume_up,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: _initialized
+                        ? () {
+                            if (isMuted) {
+                              _controller.setVolume(1);
+                              _controller.play();
+                            } else {
+                              _controller.setVolume(0);
                             }
-                          : null,
-                    );
-                  },
-                ),
-                IconButton(
-                  onPressed: () async {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        opaque: false,
-                        barrierColor: Colors.black,
-                        transitionDuration: const Duration(milliseconds: 250),
-                        pageBuilder: (_, __, ___) => BlocProvider(
-                          create: (context) => SaleAssistFullScreenBloc(
-                              saleAssisstChacheManger:
-                                  SaleAssisstChacheManger())
-                            ..add(
-                              SaleAssistFullScreenInitEvent(
-                                shortsModel: widget.shortsModel,
-                                index: widget.index,
-                              ),
+                          }
+                        : null,
+                  );
+                },
+              ),
+              IconButton(
+                onPressed: () async {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      opaque: false,
+                      barrierColor: Colors.black,
+                      transitionDuration: const Duration(milliseconds: 250),
+                      pageBuilder: (_, __, ___) => BlocProvider(
+                        create: (context) => SaleAssistFullScreenBloc(
+                            saleAssisstChacheManger: SaleAssisstChacheManger())
+                          ..add(
+                            SaleAssistFullScreenInitEvent(
+                              shortsModel: widget.shortsModel,
+                              index: widget.index,
                             ),
-                          child: SaleAssistFullScreenPage(
-                            initialPage: widget.index,
-                            shortsModel: widget.shortsModel,
-                            onProductClick: widget.onProductClick,
                           ),
+                        child: SaleAssistFullScreenPage(
+                          initialPage: widget.index,
+                          shortsModel: widget.shortsModel,
+                          onProductClick: widget.onProductClick,
                         ),
-                        transitionsBuilder: (_, anim, __, child) =>
-                            FadeTransition(opacity: anim, child: child),
                       ),
-                    );
-                  },
-                  icon: Container(
-                    padding: const EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.7),
-                      shape: BoxShape.circle,
+                      transitionsBuilder: (_, anim, __, child) =>
+                          FadeTransition(opacity: anim, child: child),
                     ),
-                    child: Icon(
-                      Icons.fullscreen_sharp,
-                      color: Colors.white,
-                      size: widget.iconSize,
-                    ),
+                  );
+                },
+                icon: Container(
+                  padding: const EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.7),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.fullscreen_sharp,
+                    color: Colors.white,
+                    size: widget.iconSize,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         if ((widget.shortsModel.media![widget.index].products ?? []).isNotEmpty)
