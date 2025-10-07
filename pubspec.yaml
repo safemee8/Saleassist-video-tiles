@@ -1,6 +1,6 @@
 name: saleassist_video_tiles
 description: "Saleassist Video Tiles — reusable video tiles with carousel, caching, and product click callbacks."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/yash-g-dev/Saleassist-video-tiles
 repository: https://github.com/yash-g-dev/Saleassist-video-tiles
 issue_tracker: https://github.com/yash-g-dev/Saleassist-video-tiles/issues
