@@ -78,8 +78,6 @@ class Endpoint {
           queryParameters: additionalData?['queryParams'] ?? queryParams,
           data: additionalData?['bodyParams'] ?? bodyParams,
         );
-      default:
-        return const InvalidResponse();
     }
   }
 }
