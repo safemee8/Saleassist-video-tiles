@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
 
@@ -52,7 +51,6 @@ class SuccessResponse extends APIResponse {
   }
 
   factory SuccessResponse.fromMap(Map<String, dynamic> map) {
-    log("${map ?? {}}");
     return SuccessResponse(
       successMessage: map['statusMessage'] as String,
       statusCode: map['statusCode'] as String,

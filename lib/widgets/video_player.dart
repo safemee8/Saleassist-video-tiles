@@ -1,12 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_cache_manager/src/result/file_info.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:saleassist_video_tiles/core/services/cache/chache_manger.dart';
 import 'package:video_player/video_player.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../src/sale_assist_tiles/model/shorts_model/shorts_model.dart';
 import '../src/sale_assit_full_screen_view/bloc/sale_assist_full_screen_bloc.dart';
@@ -23,7 +19,7 @@ class VideoTileWidget extends StatefulWidget {
   final double? borderRadius;
   final Function({String mediaId, String productId}) onProductClick;
   const VideoTileWidget({
-    Key? key,
+    super.key,
     required this.index,
     required this.size,
     this.iconSize = 30.0,
@@ -32,16 +28,15 @@ class VideoTileWidget extends StatefulWidget {
     this.borderRadius,
     required this.fileInfo,
     required this.onProductClick,
-  }) : super(key: key);
+  });
 
   @override
-  _VideoTileWidgetState createState() => _VideoTileWidgetState();
+  VideoTileWidgetState createState() => VideoTileWidgetState();
 }
 
-class _VideoTileWidgetState extends State<VideoTileWidget> {
+class VideoTileWidgetState extends State<VideoTileWidget> {
   late VideoPlayerController _controller;
   bool _initialized = false;
-  bool _isVisible = false;
 
   @override
   void initState() {

@@ -5,6 +5,6 @@ class Endpoints {
 
   // video call related
 
-  // GET
+  // get
   static String getShorts = "source/{playListId}/shorts";
 }

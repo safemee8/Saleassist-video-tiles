@@ -1,4 +1,4 @@
-library saleassist_video_tiles;
+library;
 
 // Export enums or models the user may need to pass
 export 'core/enums/video_tile_type.dart';

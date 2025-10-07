@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saleassist_video_tiles/core/enums/video_tile_type.dart';
@@ -55,8 +54,6 @@ class SaleassistVideoTiles extends StatelessWidget {
               return const SaleassistCoverFlowView();
             case VideoTileType.story:
               return const SaleassistStoryView();
-            default:
-              return const SizedBox.shrink();
           }
         },
       ),

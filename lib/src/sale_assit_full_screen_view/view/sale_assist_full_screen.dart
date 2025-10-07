@@ -1,6 +1,4 @@
-import 'dart:async';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +7,6 @@ import 'package:saleassist_video_tiles/src/sale_assit_full_screen_view/bloc/sale
 import 'package:saleassist_video_tiles/src/sale_assit_full_screen_view/bloc/sale_assist_full_screen_event.dart';
 import 'package:saleassist_video_tiles/src/sale_assit_full_screen_view/bloc/sale_assist_full_screen_state.dart';
 import 'package:saleassist_video_tiles/src/sale_assit_full_screen_view/view/full_screen_player.dart';
-import 'package:video_player/video_player.dart';
 
 class SaleAssistFullScreenPage extends StatefulWidget {
   final ShortsModel shortsModel;
@@ -71,7 +68,7 @@ class _SaleAssistFullScreenPageState extends State<SaleAssistFullScreenPage> {
               if (state is SaleAssistFullScreenError) {
                 return Center(
                   child: Text(
-                    state.message ?? 'Error',
+                    state.message,
                     style: const TextStyle(color: Colors.red),
                   ),
                 );

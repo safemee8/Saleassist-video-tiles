@@ -13,7 +13,7 @@ class Endpoint {
 
   Endpoint({
     required this.url,
-    this.method = HttpMethod.GET,
+    this.method = HttpMethod.get,
     this.queryParams = const {},
     this.pathParams = const {},
     this.bodyParams = const {},
@@ -44,34 +44,34 @@ class Endpoint {
   Future<APIResponse> execute(BuildContext context,
       [Map<String, dynamic>? additionalData]) async {
     switch (method) {
-      case HttpMethod.GET:
+      case HttpMethod.get:
         return await NetworkingService().getAPICall(
           endpoint: url,
           pathParameters: additionalData?['pathParams'] ?? pathParams,
           queryParameters: additionalData?['queryParams'] ?? queryParams,
         );
-      case HttpMethod.POST:
+      case HttpMethod.post:
         return await NetworkingService().postAPICall(
           endpoint: url,
           pathParameters: additionalData?['pathParams'] ?? pathParams,
           queryParameters: additionalData?['queryParams'] ?? queryParams,
           data: additionalData?['bodyParams'] ?? bodyParams,
         );
-      case HttpMethod.PATCH:
+      case HttpMethod.patch:
         return await NetworkingService().patchAPICall(
           endpoint: url,
           pathParameters: additionalData?['pathParams'] ?? pathParams,
           queryParameters: additionalData?['queryParams'] ?? queryParams,
           data: additionalData?['bodyParams'] ?? bodyParams,
         );
-      case HttpMethod.PUT:
+      case HttpMethod.put:
         return await NetworkingService().putAPICall(
           endpoint: url,
           pathParameters: additionalData?['pathParams'] ?? pathParams,
           queryParameters: additionalData?['queryParams'] ?? queryParams,
           data: additionalData?['bodyParams'] ?? bodyParams,
         );
-      case HttpMethod.DELETE:
+      case HttpMethod.delete:
         return await NetworkingService().deleteAPICall(
           endpoint: url,
           pathParameters: additionalData?['pathParams'] ?? pathParams,

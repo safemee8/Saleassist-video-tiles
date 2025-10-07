@@ -82,18 +82,18 @@ class NetworkingService extends BaseApiRepo implements Networking {
     endpoint = setupPathParams(endpoint, pathParameters);
 
     try {
-      log("SERVICE GET CALLED ");
+      log("SERVICE get CALLED ");
       Options options = await _getOptions();
       final response = await dio.get(
         endpoint,
         options: options,
         queryParameters: queryParameters,
       );
-      log("SERVICE GET FINISHED ${options.headers}");
+      log("SERVICE get FINISHED ${options.headers}");
 
       return returnResponse(response);
     } on DioException catch (e) {
-      log("SERVICE GET ERROR");
+      log("SERVICE get ERROR");
       if (e.response != null) {
         return returnResponse(e.response!);
       }

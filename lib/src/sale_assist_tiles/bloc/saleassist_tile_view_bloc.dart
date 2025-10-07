@@ -10,7 +10,6 @@ import 'package:saleassist_video_tiles/core/services/networking/api/api_response
 import 'package:saleassist_video_tiles/src/sale_assist_tiles/bloc/saeassist_tile_view_state.dart';
 import 'package:saleassist_video_tiles/src/sale_assist_tiles/bloc/saleassist_tile_view_event.dart';
 import 'package:saleassist_video_tiles/src/sale_assist_tiles/model/shorts_model/shorts_model.dart';
-import 'package:video_player/video_player.dart';
 
 class SaleassistTileBloc
     extends Bloc<SaleassistTileEvent, SaleassistTileState> {

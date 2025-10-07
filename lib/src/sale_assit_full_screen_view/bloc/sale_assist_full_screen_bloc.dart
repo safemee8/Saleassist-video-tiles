@@ -7,7 +7,6 @@ import 'package:saleassist_video_tiles/core/services/cache/chache_manger.dart';
 import 'package:saleassist_video_tiles/src/sale_assist_tiles/model/shorts_model/shorts_model.dart';
 import 'package:saleassist_video_tiles/src/sale_assit_full_screen_view/bloc/sale_assist_full_screen_event.dart';
 import 'package:saleassist_video_tiles/src/sale_assit_full_screen_view/bloc/sale_assist_full_screen_state.dart';
-import 'package:video_player/video_player.dart';
 
 class SaleAssistFullScreenBloc
     extends Bloc<SaleAssistFullScreenEvent, SaleAssistFullScreenState> {

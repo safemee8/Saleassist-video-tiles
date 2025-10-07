@@ -109,23 +109,21 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
                           SizedBox(
                             height: (MediaQuery.of(context).size.height) - 16,
                             width: MediaQuery.of(context).size.width * 0.2,
-                            child: Container(
-                              child: CarouselSlider.builder(
-                                itemCount: product.productImages?.length ?? 0,
-                                itemBuilder: (context, index, realIndex) {
-                                  final url = product.productImages![index];
-                                  return Image.network(
-                                    url,
-                                    fit: BoxFit.cover,
-                                    width: MediaQuery.of(context).size.width,
-                                  );
-                                },
-                                options: CarouselOptions(
-                                  autoPlay: true,
-                                  height: MediaQuery.of(context).size.height,
-                                  viewportFraction: 1.0,
-                                  enlargeCenterPage: true,
-                                ),
+                            child: CarouselSlider.builder(
+                              itemCount: product.productImages?.length ?? 0,
+                              itemBuilder: (context, index, realIndex) {
+                                final url = product.productImages![index];
+                                return Image.network(
+                                  url,
+                                  fit: BoxFit.cover,
+                                  width: MediaQuery.of(context).size.width,
+                                );
+                              },
+                              options: CarouselOptions(
+                                autoPlay: true,
+                                height: MediaQuery.of(context).size.height,
+                                viewportFraction: 1.0,
+                                enlargeCenterPage: true,
                               ),
                             ),
                           ),

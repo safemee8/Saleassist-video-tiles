@@ -1,11 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saleassist_video_tiles/src/sale_assist_tiles/bloc/saeassist_tile_view_state.dart';
 import 'package:saleassist_video_tiles/src/sale_assist_tiles/bloc/saleassist_tile_view_bloc.dart';
 import 'package:saleassist_video_tiles/widgets/video_player.dart';
-import 'package:video_player/video_player.dart';
 
 class SaleassistTileView extends StatelessWidget {
   final double? seperatorWidth;
@@ -17,7 +15,7 @@ class SaleassistTileView extends StatelessWidget {
   final Function({String mediaId, String productId}) onProductClick;
 
   const SaleassistTileView({
-    Key? key,
+    super.key,
     this.seperatorWidth = 8.0,
     this.borderRadius = 12.0,
     required this.size,
@@ -25,7 +23,7 @@ class SaleassistTileView extends StatelessWidget {
     required this.playListId,
     required this.onProductClick,
     this.iconSize,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

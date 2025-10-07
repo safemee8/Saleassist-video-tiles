@@ -41,8 +41,8 @@ class UnAuthorizedException extends AppException {
 }
 
 class AuthException extends AppException {
-  final String message;
-  AuthException(this.message) : super(message, "");
+  @override
+  AuthException(String message) : super(message, "");
 }
 
 // AuthException mapFirebaseAuthException(FirebaseAuthException e) {
